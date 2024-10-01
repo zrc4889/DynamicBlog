@@ -1,53 +1,40 @@
- # This is a basic workflow to help you get started with Actions
+name: Run Python Server with ngrok
 
-name: Test
+on: [push]
 
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  #pull_request:
-    #branches: [ main ]
-  schedule:
-    - cron: '*/10 * * * *'
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  run-server:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: 'Set up Python'
-        uses: actions/setup-python@v1
-        with:
-           python-version: 3.7
-      - name: 'Install requirements'
-        run: |
-          pip install requests
-          pip install bs4
-          pip install fake_useragent
-      - name: 'Working'
-        run: 
-          python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: commit
-        run: |
-          git config --global user.email zrc4889@163.com  
-          git config --global user.name zrc4889
-          git add .
-          git commit -m "Updated" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install Flask
+
+    - name: Download ngrok
+      run: |
+        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+        echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
+        sudo apt update && sudo apt install ngrok
+
+    - name: Run server
+      run: |
+        nohup python main.py &
+
+    - name: Start ngrok
+      run: |
+        nohup ngrok http 5000 &
+
+    - name: Get ngrok URL
+      run: |
+        sleep 5
+        curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url
