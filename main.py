@@ -5,7 +5,7 @@ from fake_useragent import UserAgent
 ua = UserAgent()
 headers = {'User-Agent': ua.random}
 
-city = '俄罗斯,萨哈共和国'
+city = '福建省,福州市,连江县'
 
 url = "https://www.msn.cn/zh-cn/weather/forecast/in-" + city
 response = requests.get(url, headers=headers)
