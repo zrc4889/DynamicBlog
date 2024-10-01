@@ -39,7 +39,7 @@ jobs:
           pip install fake_useragent
       - name: 'Working'
         run: 
-          python -m http.server
+          python
 
       - name: commit
         run: |
