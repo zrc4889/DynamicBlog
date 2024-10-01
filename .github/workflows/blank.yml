@@ -43,6 +43,7 @@ jobs:
 
       - name: commit
         run: |
+          git pull
           git config --global user.email zrc4889@163.com  
           git config --global user.name zrc4889
           git add .
