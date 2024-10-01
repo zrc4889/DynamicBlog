@@ -18,12 +18,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        
+    - name: Serveo Start
+      run: |
+        ssh -R zrc4889:80:localhost:9000 serveo.net
 
     - name: Run server
       run: |
         nohup python -m http.server 9000
-
-    - name: Serveo Start
-      run: |
-        ssh -R zrc4889:80:localhost:9000 serveo.net
 
