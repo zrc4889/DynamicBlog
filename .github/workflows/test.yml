@@ -1,4 +1,4 @@
-name: Run Python Server with ngrok
+name: Test
 
 on: [push]
 
@@ -18,23 +18,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install Flask
-
-    - name: Download ngrok
-      run: |
-        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
-        echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
-        sudo apt update && sudo apt install ngrok
 
     - name: Run server
       run: |
-        nohup python main.py &
+        nohup python -m http.server 9000
 
-    - name: Start ngrok
+    - name: Serveo Start
       run: |
-        nohup ngrok http 5000 &
+        ssh -R zrc4889:80:localhost:9000 serveo.net
 
-    - name: Get ngrok URL
-      run: |
-        sleep 5
-        curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url
