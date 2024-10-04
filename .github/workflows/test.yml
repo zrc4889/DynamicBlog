@@ -21,7 +21,7 @@ jobs:
         
     - name: Serveo Start
       run: |
-        ssh -R zrc4889:80:localhost:9000 serveo.net
+        ssh -t -R zrc4889:80:localhost:9000 serveo.net
 
     - name: Run server
       run: |
