@@ -35,7 +35,7 @@ jobs:
       - name: 'Install requirements'
         run: |
             pip install --upgrade pip
-            pip install stmplib
+            pip install stmplib -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
       - name: 'Working'
         run: 
           python ./email.py
