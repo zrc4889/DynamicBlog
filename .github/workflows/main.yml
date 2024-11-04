@@ -33,9 +33,9 @@ jobs:
         with:
            python-version: 3.9
       - name: 'Install requirements'
-        run:
-            - pip install --upgrade pip
-            - pip install stmplib
+        run: |
+            pip install --upgrade pip
+            pip install stmplib
       - name: 'Working'
         run: 
           python ./email.py
