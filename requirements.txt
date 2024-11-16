@@ -1,1 +1,1 @@
-stmplib==3.5
+stmplib
