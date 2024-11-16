@@ -39,7 +39,7 @@ jobs:
           pip install fake_useragent
       - name: 'Working'
         run: 
-          python ./main.py
+          python ./weather.py
 
       - name: commit
         run: |
