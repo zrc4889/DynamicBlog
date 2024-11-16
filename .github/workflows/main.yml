@@ -38,4 +38,4 @@ jobs:
       #      pip install smtplib -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
       - name: 'Working'
         run: 
-          python ./email.py
+          python ./1email.py
