@@ -34,8 +34,7 @@ jobs:
            python-version: 3.9
       - name: 'Install requirements'
         run: |
-            pip install --upgrade pip
-            pip install PyEmail
+           pip install -r requirements.txt
       - name: 'Working'
         run: 
           python ./email.py
