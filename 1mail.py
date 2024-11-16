@@ -7,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 sender_email = "zrc_4889@163.com"
 receiver_email = "zrc4889@163.com"
 # password = "ZASRS37tuwxerHBZ"
-password = os.environ['password']
+password = os.environ['PASSWORD']
 
 # 创建邮件
 message = MIMEMultipart()
