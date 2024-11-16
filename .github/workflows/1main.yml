@@ -1,6 +1,6 @@
  # This is a basic workflow to help you get started with Actions
 
-name: Email
+name: Email111
 
 # Controls when the action will run. 
 on:
@@ -35,7 +35,8 @@ jobs:
       - name: 'Install requirements'
         run: |
            pip install zmail
-      #      pip install smtplib -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
+           pip install PyEmail
+      #      pip install smplib -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
       - name: 'Working'
         run: 
           python ./1.py
