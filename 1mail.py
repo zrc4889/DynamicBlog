@@ -7,7 +7,7 @@ def text():
     today = datetime.date.today()
     past_date = datetime.date(2025, 1, 1)
     delta = today - past_date
-    return '距离新年还有 ' + delta + ' 天，加油！'
+    return '距离新年还有 ' + delta.days + ' 天，加油！'
 
 # 发件人和收件人信息
 sender_email = "zrc_4889@163.com"
