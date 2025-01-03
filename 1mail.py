@@ -29,10 +29,10 @@ def send(s):
 
 today = datetime.date.today()
 s = ''
-data = {'2025新年': datetime.date(2025, 1, 1),
-        # '蛇年春节': datetime.date(2025, 1, 29),
-        '2025三战上岸': datetime.date(2025, 7, 1)
-        # '2027 全国高考': datetime.date(2027, 6, 7)
+# data = {'2025新年': datetime.date(2025, 1, 1),
+        '蛇年春节': datetime.date(2025, 1, 29),
+        # '2025三战上岸': datetime.date(2025, 7, 1)
+        '2027 全国高考': datetime.date(2027, 6, 7)
     }
 s = s + '加油 CharonTree！'
 for key, val in data.items():
