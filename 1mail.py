@@ -30,10 +30,9 @@ def send(s):
 today = datetime.date.today()
 s = ''
 data = {
-        '高一上福州市质检': datetime.date(2025, 1, 18),
         '2027 全国高考': datetime.date(2027, 6, 7)
     }
-s = s + '我想去哈工大踢雪地足球。第一我只要你健康快乐，第二不要拿过去惩罚自己，第三做正确的事。'
+s = s + 'CharonTree要去去哈工大踢雪地足球。'
 for key, val in data.items():
     s = s + '距离' + str(key) + '还有' + str((val - today).days) + '天。'
     
