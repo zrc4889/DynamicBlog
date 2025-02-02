@@ -35,6 +35,8 @@ data = {
 s = s + 'CharonTree要去去哈工大踢雪地足球。'
 for key, val in data.items():
     s = s + '距离' + str(key) + '还有' + str((val - today).days) + '天。'
+day = (val - today).days
+s = s + str(day / 7) 
     
 send(s)
 
