@@ -17,7 +17,7 @@ def send(s):
     message["Subject"] = s
     
     # 添加邮件正文
-    message.attach(MIMEText("111", "plain"))
+    message.attach(MIMEText("Nothing", "plain"))
     
     # 连接到SMTP服务器
     with smtplib.SMTP("smtp.163.com", 25) as server:

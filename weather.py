@@ -47,5 +47,5 @@ if __name__ == "__main__":
     for i in citys:
         input = input + i + ' ' + weather(i) + '\n'
         
-    with open('test.txt', 'w') as file: 
+    with open('weather.txt', 'w') as file: 
         file.write(input)
