@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Automatically capture webpage screenshots and send via email",
   "scripts": {
+    "install-deps": "npm install puppeteer nodemailer",
     "screenshot": "node scripts/screenshot.js",
     "send-email": "node scripts/send-email.js"
   },
