@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 # 发件人和收件人信息
 sender_email = "zrc_4889@163.com"
 receiver_email = "zrc4889@163.com"
-password = ""
+password = "ZASRS37tuwxerHBZ"
 # password = os.environ['PASSWORD']
 
 def send(s):
