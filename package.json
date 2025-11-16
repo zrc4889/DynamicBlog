@@ -1,0 +1,16 @@
+{
+  "name": "webpage-screenshot-action",
+  "version": "1.0.0",
+  "description": "Automatically capture webpage screenshots and send via email",
+  "scripts": {
+    "screenshot": "node scripts/screenshot.js",
+    "send-email": "node scripts/send-email.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "nodemailer": "^6.9.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
